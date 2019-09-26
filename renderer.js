@@ -5,19 +5,6 @@ const INPUT_NUMBER_HEIGHT = document.getElementById('Height')
 const INPUT_NUMBER_WIDTH = document.getElementById('Width')
 const INPUT_COLOR = document.getElementById('Color_input')
 
-function openFile(inputFile) {
-  inputFile.click()
-  inputFile.addEventListener('change', () => {
-    let reader = new FileReader()
-    reader.readAsDataURL(inputFile.files[0])
-    reader.onloadend = () => { 
-        const base64data = reader.result     
-        document.getElementById('attachmentInput').value = base64data
-        PREVIEW.innerHTML = `<img class="Preview_img" id="Preview_img" src="${base64data}"/>`
-    }
-  })
-}
-
 // Output label's default value
 INPUT_RANGE_LABEL.innerHTML = `${INPUT_RANGE.value} px`
 

@@ -1,12 +1,20 @@
-// All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
+const { dialog } = require('electron').remote
+const { isEmpty } = require('lodash')
+
 window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  } 
-  
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
+ 
+  document.querySelector('#uploadIcon').addEventListener('click', function (event) {
+    dialog.showOpenDialog({
+        properties: ['openFile', 'multiSelections'],
+        filters: [
+          { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+        ]
+    }, function (files) {
+        if (files !== undefined && !isEmpty.files) {
+          PREVIEW.innerHTML = `<img class="Preview_img" id="Preview_img" src="${files}"/>`
+        }
+    })
+  })
 })
+
+
