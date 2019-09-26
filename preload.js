@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
  
   document.querySelector('#uploadIcon').addEventListener('click', function (event) {
     dialog.showOpenDialog({
-        properties: ['openFile', 'multiSelections'],
+        properties: ['openFile'],
         filters: [
           { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
         ]
