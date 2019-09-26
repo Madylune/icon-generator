@@ -51,3 +51,8 @@ function resizeImage(height, width) {
 INPUT_COLOR.addEventListener('change', () => {
   PREVIEW.style.backgroundColor = INPUT_COLOR.value
 })
+
+function removeColor() {
+  INPUT_COLOR.value = 'transparent'
+  PREVIEW.style.backgroundColor = 'transparent'
+}

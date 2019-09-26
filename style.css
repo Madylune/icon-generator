@@ -87,6 +87,12 @@ body {
   color: #32325D;
   margin-right: 10px;
 }
+.Remove_icon {
+  color: red;
+  margin: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
 
 .Submit_btn {
   background-color: #32325D;
