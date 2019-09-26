@@ -69,3 +69,26 @@ function changeBorderRadiusToLittleRound() {
 function changeBorderRadiusToRound() {
   PREVIEW.style.borderRadius = '50%'
 }
+  
+let getCanvas // global variable
+
+document.getElementById('downloadFile').onclick = () => {
+  html2canvas(PREVIEW, {
+  onrendered: (canvas) => {
+    PREVIEW.appendChild(canvas)
+      getCanvas = canvas
+      let imgageData = getCanvas.toDataURL("image/png")
+      console.log('debug imgageData', imgageData)
+      let newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream")
+
+      let link = document.createElement('a')
+      link.setAttribute('href', newData)
+      link.setAttribute('download', "icon_generator_image.png")
+
+      link.style.display = 'none'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  })
+}
