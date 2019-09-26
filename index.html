@@ -3,14 +3,74 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <div class="Main_container">
+      <div class="Preview_wrapper">
+        <div id="Preview" class="Preview">
+
+        </div>
+        <img class="Logo" src="assets/logo-it-akademy.png" alt="Logo de l'IT AKADEMY" />
+      </div>
+      <div class="Sidebar">
+        <div class="Sidebar_item Sidebar_item_upload">
+          <h3 class="Title">Ajouter une image</h3>
+          <form class="Upload_form" id="Upload_form">
+              <input id="attachmentInput" type="hidden" name="attachment" />
+            <input type="file" id="uploadImage" name="uploadImage" accept="image/*" style="display: none">
+            <span class="glyphicon glyphicon-open-file Open_file_icon" onclick="openFile(uploadImage)"></span>
+          </form>
+        </div>
+
+        <div class="Sidebar_item Sidebar_item_sizes">
+          <h3 class="Title">Dimensions</h3>
+          <form>
+            <div class="form-group">
+              <!-- <label for="formControlRange">Example Range input</label> -->
+              <input type="range" class="form-control-range" id="formControlRange">
+            </div>
+          </form>
+          <form>
+            <div class="form-group">
+              <label for="height">H</label>
+              <input type="number" id="Height" name="height" min="1" max="3000">
+              <label for="width">L</label>
+              <input type="number" id="Width" name="width" min="1" max="3000">
+            </div>
+          </form>
+        </div>
+        
+        <div class="Sidebar_item Sidebar_item_angles">
+          <h3 class="Title">Angles</h3>
+          <button class="Angles_btn">Droits</button>
+          <button class="Angles_btn">Arrondis</button>
+          <button class="Angles_btn">Ronds</button>
+        </div>
+        
+        <div class="Sidebar_item Sidebar_item_background">
+          <h3 class="Title">Fond</h3>
+          <div class="Sidebar_item_background_content">
+            <span class="glyphicon glyphicon-tint Color_icon"></span>
+            <div class="Bg_preview">
+  
+            </div>
+          </div>
+        </div>
+
+        <div class="Sidebar_item Sidebar_item_submit">
+          <button class="Submit_btn">Valider</button>
+        </div>
+      </div>
+    </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
   </body>
 </html>

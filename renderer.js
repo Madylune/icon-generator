@@ -1,3 +1,12 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+function openFile(inputFile) {
+  inputFile.click()
+  inputFile.addEventListener('change', () => {
+    let reader = new FileReader()
+    reader.readAsDataURL(inputFile.files[0])
+    reader.onloadend = () => { 
+        const base64data = reader.result     
+        document.getElementById('attachmentInput').value = base64data
+        document.getElementById('Preview').innerHTML = `<img class="Preview_img" src="${base64data}"/>`
+    }
+  })
+}
