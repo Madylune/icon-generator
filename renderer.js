@@ -63,7 +63,7 @@ function changeBorderRadiusToSquare() {
 }
 
 function changeBorderRadiusToLittleRound() {
-  PREVIEW.style.borderRadius = '20%'
+  PREVIEW.style.borderRadius = '5%'
 }
 
 function changeBorderRadiusToRound() {
