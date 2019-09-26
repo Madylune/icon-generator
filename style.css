@@ -72,6 +72,19 @@ body {
   text-align: center;
   margin: 0 5px;
 }
+.Square_btn, .LittleRound_btn, .Round_btn {
+  border: 1px solid #32325D;
+  border-right: transparent;
+  border-bottom: transparent;
+  height: 30px;
+  margin: 5px;
+}
+.LittleRound_btn {
+  border-radius: 5px;
+}
+.Round_btn {
+  border-radius: 50%;
+}
 
 .Sidebar_item_background_content {
   display: flex;
