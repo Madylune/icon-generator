@@ -56,3 +56,16 @@ function removeColor() {
   INPUT_COLOR.value = 'transparent'
   PREVIEW.style.backgroundColor = 'transparent'
 }
+
+// Change border radium
+function changeBorderRadiusToSquare() {
+  PREVIEW.style.borderRadius = '0'
+}
+
+function changeBorderRadiusToLittleRound() {
+  PREVIEW.style.borderRadius = '20%'
+}
+
+function changeBorderRadiusToRound() {
+  PREVIEW.style.borderRadius = '50%'
+}
