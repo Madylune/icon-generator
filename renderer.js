@@ -1,6 +1,12 @@
 // const fs = require('fs')
 // const gm = require('gm').subClass({ imageMagick: true })
 
+const PREVIEW = document.getElementById('Preview')
+const INPUT_RANGE = document.getElementById('formControlRange')
+const INPUT_RANGE_LABEL = document.getElementById('Range_label')
+const INPUT_NUMBER_HEIGHT = document.getElementById('Height')
+const INPUT_NUMBER_WIDTH = document.getElementById('Width')
+
 function openFile(inputFile) {
   inputFile.click()
   inputFile.addEventListener('change', () => {
@@ -9,21 +15,36 @@ function openFile(inputFile) {
     reader.onloadend = () => { 
         const base64data = reader.result     
         document.getElementById('attachmentInput').value = base64data
-        document.getElementById('Preview').innerHTML = `<img class="Preview_img" id="Preview_img" src="${base64data}"/>`
+        PREVIEW.innerHTML = `<img class="Preview_img" id="Preview_img" src="${base64data}"/>`
     }
   })
 }
 
-const resizeInputRange = document.getElementById('formControlRange')
-document.getElementById('Range_label').innerHTML = `${resizeInputRange.value} px` // Default value
+// Output label's default value
+INPUT_RANGE_LABEL.innerHTML = `${INPUT_RANGE.value} px`
 
-resizeInputRange.addEventListener('change', () => {
-  let rangeValue = resizeInputRange.value
-  resizeImage(rangeValue)
-  document.getElementById('Range_label').innerHTML = `${rangeValue} px`
+// Resize by range input
+INPUT_RANGE.addEventListener('change', () => {
+  let rangeValue = INPUT_RANGE.value
+  resizeImage(rangeValue, rangeValue)
+  INPUT_RANGE_LABEL.innerHTML = `${rangeValue} px`
+  INPUT_NUMBER_HEIGHT.value = rangeValue
+  INPUT_NUMBER_WIDTH.value = rangeValue
 })
 
-function resizeImage(sizes) {
-  document.getElementById('Preview').style.height = `${sizes}px`
-  document.getElementById('Preview').style.width = `${sizes}px`
+// Resize height only
+INPUT_NUMBER_HEIGHT.addEventListener('change', () => {
+  let heightValue = INPUT_NUMBER_HEIGHT.value
+  resizeImage(heightValue, PREVIEW.style.width)
+})
+
+// Resize width only
+INPUT_NUMBER_WIDTH.addEventListener('change', () => {
+  let widthValue = INPUT_NUMBER_WIDTH.value
+  resizeImage(PREVIEW.style.width, widthValue)
+})
+
+function resizeImage(height, width) {
+  PREVIEW.style.height = `${height}px`
+  PREVIEW.style.width = `${width}px`
 }
