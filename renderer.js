@@ -78,12 +78,11 @@ document.getElementById('downloadFile').onclick = () => {
     PREVIEW.appendChild(canvas)
       getCanvas = canvas
       let imgageData = getCanvas.toDataURL("image/png")
-      console.log('debug imgageData', imgageData)
       let newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream")
 
       let link = document.createElement('a')
       link.setAttribute('href', newData)
-      link.setAttribute('download', "icon_generator_image.png")
+      link.setAttribute('download', 'image.png')
 
       link.style.display = 'none'
       document.body.appendChild(link)
