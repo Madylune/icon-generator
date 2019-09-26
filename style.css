@@ -56,6 +56,13 @@ body {
   min-height: 150px;
   text-align: center;
 }
+#formControlRange {
+  width: 80%;
+  margin: auto;
+}
+#Height, #Width {
+  margin: 0 10px;
+}
 .Open_file_icon {
   color: #3ECF8E; 
   font-size: 60px;
