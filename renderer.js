@@ -1,11 +1,9 @@
-// const fs = require('fs')
-// const gm = require('gm').subClass({ imageMagick: true })
-
 const PREVIEW = document.getElementById('Preview')
 const INPUT_RANGE = document.getElementById('formControlRange')
 const INPUT_RANGE_LABEL = document.getElementById('Range_label')
 const INPUT_NUMBER_HEIGHT = document.getElementById('Height')
 const INPUT_NUMBER_WIDTH = document.getElementById('Width')
+const INPUT_COLOR = document.getElementById('Color_input')
 
 function openFile(inputFile) {
   inputFile.click()
@@ -48,3 +46,8 @@ function resizeImage(height, width) {
   PREVIEW.style.height = `${height}px`
   PREVIEW.style.width = `${width}px`
 }
+
+// Change background color
+INPUT_COLOR.addEventListener('change', () => {
+  PREVIEW.style.backgroundColor = INPUT_COLOR.value
+})

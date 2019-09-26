@@ -76,12 +76,11 @@ body {
   align-items: center;
   justify-content: center;
 }
-.Bg_preview {
-  /* A rendre dynamique */
-  background-color: #3ECF8E; 
+.Color_input {
   height: 35px;
   width: 80px;
   border-radius: 4px;
+  cursor: pointer;
 }
 .Color_icon {
   font-size: 20px;
