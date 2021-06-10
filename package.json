@@ -20,8 +20,8 @@
     "electron": "^9.1.0"
   },
   "dependencies": {
-    "dom-to-image": "^2.6.0",
-    "html2canvas": "^1.0.0-rc.4",
+    "dom-to-image": "2.6.0",
+    "html2canvas": "^1.0.0-rc.7",
     "lodash": ">=4.17.21"
   }
 }
